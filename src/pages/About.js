@@ -9,14 +9,14 @@ export default function About() {
         Sixfox Technology started as a startup focused on building smart solutions for critical industries. We combine startup agility with enterprise expertise to deliver reliable software products.
       </p>
 
-      <h2 className="text-2xl sm:text-3xl font-bold text-deepNavy mt-8 mb-4">Our Team</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold text-deepNavy mt-8 mb-4">Founder & CTO</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-md text-center">
-          <p className="font-bold text-primaryOrange">John Doe</p>
-          <p className="text-darkGray">CEO & Founder</p>
+          <p className="font-bold text-primaryOrange">Neel Palash Mondal & Aloke Chatterjee</p>
+          <p className="text-darkGray">Founder</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow-md text-center">
-          <p className="font-bold text-primaryOrange">Jane Smith</p>
+          <p className="font-bold text-primaryOrange">Neel Palash Mondal</p>
           <p className="text-darkGray">CTO</p>
         </div>
       </div>
