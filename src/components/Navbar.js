@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import logo from "../assets/logo1.jpg";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,16 +13,27 @@ export default function Navbar() {
     { name: "Portfolio", path: "/portfolio" },
     { name: "Careers", path: "/careers" },
     { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact", highlight: true },
+    { name: "Contact", path: "/contact" },
   ];
+
+  const activeClass = "font-bold text-primaryOrange";
 
   return (
     <nav className="bg-deepNavy text-white shadow-md relative z-50">
       {/* Top Navbar */}
       <div className="flex justify-between items-center px-4 sm:px-6 py-4">
-        <h1 className="text-2xl sm:text-3xl font-bold text-[#F37021]">
-          Sixfox Technology
-        </h1>
+        {/* Logo + Text */}
+        <Link to="/" className="flex items-center gap-2">
+          {/* Circle Logo */}
+          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primaryOrange flex items-center justify-center">
+            <img src={logo} alt="Sixfox Logo" className="w-full h-full object-cover" />
+          </div>
+
+          {/* Company Name */}
+          <span className="text-xl sm:text-2xl font-bold text-[#F37021]">
+            Sixfox Technology
+          </span>
+        </Link>
 
         {/* Hamburger / Cross */}
         <button
@@ -49,20 +61,20 @@ export default function Navbar() {
         <ul className="hidden sm:flex gap-6">
           {menuItems.map((item) => (
             <li key={item.name}>
-              <Link
+              <NavLink
                 to={item.path}
-                className={`hover:text-primaryOrange ${
-                  item.highlight ? "font-bold text-primaryOrange" : ""
-                }`}
+                className={({ isActive }) =>
+                  `hover:text-primaryOrange ${isActive ? activeClass : ""}`
+                }
               >
                 {item.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Mobile Menu - slides in below navbar */}
+      {/* Mobile Menu */}
       <div
         className={`sm:hidden absolute top-full right-0 w-full bg-deepNavy transform transition-transform duration-300 z-40 ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -71,15 +83,15 @@ export default function Navbar() {
         <ul className="flex flex-col divide-y divide-gray-600 px-4">
           {menuItems.map((item) => (
             <li key={item.name}>
-              <Link
+              <NavLink
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`py-4 block hover:text-primaryOrange ${
-                  item.highlight ? "font-bold text-primaryOrange" : ""
-                }`}
+                className={({ isActive }) =>
+                  `py-4 block hover:text-primaryOrange ${isActive ? activeClass : ""}`
+                }
               >
                 {item.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
