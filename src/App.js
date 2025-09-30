@@ -13,6 +13,7 @@ import Portfolio from "./pages/Portfolio";
 import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login/>} />
         </Routes>
       </main>
       <Footer />
