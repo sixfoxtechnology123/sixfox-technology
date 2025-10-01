@@ -122,7 +122,7 @@ const handleSubmit = async (e) => {
             <h2 className="text-xl font-semibold text-deepNavy mb-2 text-center">Our Office</h2>
             <p className="text-gray-700 leading-relaxed">
               <b> Sixfox Technology</b> <br />
-              A -10, 74, A Block, Kalyani, West Bengal 741235, India
+              A -10/74, Kalyani, Nadia, West Bengal, 741235, India
             </p>
           </div>
 
