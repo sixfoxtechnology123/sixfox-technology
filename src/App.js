@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast"; // <-- import toaster
 
 // Components
 import Navbar from "./components/Navbar";
@@ -19,17 +20,20 @@ function App() {
   return (
     <Router>
       <Navbar />
+      {/* Toaster added here */}
+      <Toaster  reverseOrder={false} />
+      
       <main className="min-h-screen bg-lightGray">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/project" element={<Project/>} />
+          <Route path="/project" element={<Project />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <Footer />

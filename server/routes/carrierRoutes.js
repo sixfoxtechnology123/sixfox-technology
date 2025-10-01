@@ -1,11 +1,26 @@
 const express = require("express");
 const router = express.Router();
-const careerController = require("../controllers/carrierController");
+const {
+  subscribe,
+  getJobs,
+  addJob,
+  deleteJob,
+  notifySubscribers,
+} = require("../controllers/carrierController");
 
-router.post("/subscribe", careerController.subscribe);
-router.get("/jobs", careerController.getJobs);
-router.post("/addJob", careerController.addJob);
-router.delete("/deleteJob/:id", careerController.deleteJob);
-router.post("/notifySubscribers", careerController.notifySubscribers);
+// Subscribe
+router.post("/subscribe", subscribe);
+
+// Get all jobs
+router.get("/jobs", getJobs);
+
+// Add job & auto notify
+router.post("/addJob", addJob);
+
+// Delete job
+router.delete("/deleteJob/:id", deleteJob);
+
+// Manual notify
+router.post("/notifySubscribers", notifySubscribers);
 
 module.exports = router;

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import toast from 'react-hot-toast';
+
 
 export default function Careers() {
   const [jobs, setJobs] = useState([]);
@@ -59,12 +61,12 @@ export default function Careers() {
   };
 
   const handleAddJob = async () => {
-    if (!newJobTitle || !newJobDesc) return alert("Title & Description required");
+    if (!newJobTitle || !newJobDesc) return toast.success("Title & Description required");
 
     // Temporary job with tempId for frontend
     const tempJob = { title: newJobTitle, description: newJobDesc, tempId: Date.now().toString() };
     setJobs([...jobs, tempJob]);
-    alert("Job added successfully!");
+    toast.success("Job added successfully!");
     setNewJobTitle("");
     setNewJobDesc("");
     setShowModal(false);
@@ -79,7 +81,7 @@ export default function Careers() {
       const data = await res.json();
 
       if (!data.success) {
-        alert("Failed to save job in database. Please try again.");
+        toast.success("Failed to save job in database. Please try again.");
         setJobs(prev => prev.filter(job => job.tempId !== tempJob.tempId));
       } else {
         // Replace tempJob with real DB job
@@ -89,7 +91,7 @@ export default function Careers() {
       }
     } catch (err) {
       console.error("Add Job Error:", err);
-      alert("Network error while saving job.");
+      toast.success("Network error while saving job.");
       setJobs(prev => prev.filter(job => job.tempId !== tempJob.tempId));
     }
   };
@@ -102,15 +104,15 @@ export default function Careers() {
       const res = await fetch(`http://localhost:5000/api/careers/deleteJob/${id}`, { method: "DELETE" });
       const data = await res.json();
       if (data.success) setJobs(jobs.filter(job => job._id !== id));
-      alert(data.message);
+      toast.success(data.message);
     } catch (err) {
       console.error(err);
-      alert("Failed to delete job.");
+      toast.success("Failed to delete job.");
     }
   };
 
   const handleNotifySubscribers = async (jobId) => {
-    alert("Notification is being sent to subscribers...");
+    toast.success("Notification is being sent to subscribers...");
 
     try {
       const res = await fetch("http://localhost:5000/api/careers/notifySubscribers", {
@@ -119,10 +121,10 @@ export default function Careers() {
         body: JSON.stringify({ jobId }),
       });
       const data = await res.json();
-      if (!data.success) alert("Failed to send notifications. Please try again.");
+      if (!data.success) toast.success("Failed to send notifications. Please try again.");
     } catch (err) {
       console.error("Notify Error:", err);
-      alert("Network error while sending notification.");
+      toast.success("Network error while sending notification.");
     }
   };
 

@@ -11,8 +11,8 @@ export default function Login() {
     e.preventDefault();
 
     // Admin credentials
-    const adminUser = "admin";
-    const adminPass = "admin123";
+    const adminUser = "sixfox";
+    const adminPass = "sixfox123";
 
     if (username === adminUser && password === adminPass) {
       localStorage.setItem("isAdmin", true); // mark admin logged in
