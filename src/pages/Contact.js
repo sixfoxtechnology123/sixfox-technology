@@ -61,7 +61,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <section className="px-4 sm:px-6 sm:py-4 max-w-6xl mx-auto">
+    <section className="px-4 sm:px-6 sm:py-4 min-h-screen max-w-6xl mx-auto">
       <h1 className="text-2xl sm:text-2xl font-bold text-deepNavy mb-2 text-center">
         Contact Us
       </h1>

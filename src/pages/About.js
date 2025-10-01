@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="px-8 sm:px-8 py-6 sm:py-6 max-w-full mx-auto">
+    <section className="px-8 sm:px-8 py-6 sm:py-6 min-h-screen max-w-full mx-auto">
       <h1 className="text-3xl sm:text-4xl font-bold text-deepNavy mb-6">About Sixfox Technology</h1>
       <p className="text-darkGray mb-4">
         Our goal is to simplify complex operations for hospitals, schools, and enterprises with innovative technology.

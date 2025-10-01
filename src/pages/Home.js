@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <section className="px-4 sm:px-6 py-6 sm:py-6 max-w-full mx-auto">
+    <section className="px-4 sm:px-6 py-6 sm:py-6 min-h-screen max-w-full mx-auto">
 
       {/* Hero Section */}
       <div className="bg-white rounded-xl shadow-lg p-6 sm:p-12 text-center mb-12">

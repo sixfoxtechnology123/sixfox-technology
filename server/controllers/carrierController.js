@@ -98,12 +98,20 @@ exports.addJob = async (req, res) => {
 exports.deleteJob = async (req, res) => {
   try {
     const { id } = req.params;
-    await Job.findByIdAndDelete(id);
-    
+    const deletedJob = await Job.findByIdAndDelete(id);
+
+    if (!deletedJob) {
+      return res.status(404).json({ success: false, message: "Job not found" });
+    }
+
+    // Send success response
+    res.json({ success: true, message: "Job deleted successfully" });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
 
 // Send notification manually
 exports.notifySubscribers = async (req, res) => {

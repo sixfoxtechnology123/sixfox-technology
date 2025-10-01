@@ -9,11 +9,11 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Industries from "./pages/Industries";
-import Portfolio from "./pages/Portfolio";
 import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Login from "./components/Login";
+import Project from "./pages/Project";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/project" element={<Project/>} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
