@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import toast from 'react-hot-toast';
 
 export default function Project() {
   const [projects, setProjects] = useState([]);
@@ -62,7 +63,7 @@ export default function Project() {
       fetchProjects();
     } catch (err) {
       console.error(err);
-      alert("Error saving project");
+      toast.success("Error saving project");
     }
   };
 
@@ -76,7 +77,7 @@ export default function Project() {
       fetchProjects();
     } catch (err) {
       console.error(err);
-      alert("Error deleting project");
+      toast.success("Error deleting project");
     }
   };
 

@@ -24,7 +24,7 @@ export default function Login() {
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form onSubmit={handleLogin} className="bg-white p-6 rounded shadow-md w-80">
+      <form onSubmit={handleLogin} className="bg-white text-black p-6 rounded shadow-md w-80">
         <h2 className="text-2xl font-bold mb-4 text-center">Admin Login</h2>
         {error && <p className="text-red-600 mb-2">{error}</p>}
 
